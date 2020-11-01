@@ -29,8 +29,7 @@ const useStyles = makeStyles({
     
     
     forget: {
-        position: 'absolute',
-        bottom: '0px'
+        paddingTop: '20px'
     },
     
     icon: {
@@ -41,6 +40,7 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         alignItems: 'flex-end',
         marginBottom: '5px',
+        marginTop: '30px'
     },
     image: {
         height: '100%',
@@ -88,14 +88,9 @@ const useStyles = makeStyles({
         height: '50px',
         fontSize: '16px',
         border: 'none',
-        
-        position: 'absolute',
-        bottom: '70px',
         fontFamily: 'Poppins-Medium',
-        
         color: '#555',
         lineHeight: '1.2',
-        
         background: '-webkit-linear-gradient(left,#00B4D8,#EDF6F9)',
         '&:hover': {
             cursor: 'pointer'
@@ -156,7 +151,7 @@ function Login(props) {
         <Grid container >
             <Grid lg={5} md={6} sm={8} xs ={11} item className={classes.container}>
             <div className={classes.imageDiv}>
-                <img className={classes.image} src='https://www.graphicsprings.com/filestorage/stencils/db095faa8035cee1e0cd3606ac6cad1b.png?width=500&height=500'/>
+                <img className={classes.image} alt='Logo of travello' src='https://www.graphicsprings.com/filestorage/stencils/db095faa8035cee1e0cd3606ac6cad1b.png?width=500&height=500'/>
             </div>
 
             <h2 className={classes.title}>LOG IN</h2>
@@ -182,15 +177,16 @@ function Login(props) {
                        error={passwordError} helperText={passwordError?'Password not match':''}
                        type='password' id="input-with-icon-grid" label="Password" />
                 </div>
-                <div className={classes.input}>
-                    <button className={classes.button}>
-                        Login
-                    </button>
-                </div>
+                
                 <div style={{display:'flex',justifyContent:'space-evenly',marginTop:'40px'}}>
                 <FacebookIcon style={{fontSize:'35px',cursor:'pointer'}}/>
                 <TwitterIcon style={{fontSize:'35px',cursor:'pointer'}}/>
                 <span style={{fontFamily: 'Oswald, sans-serif',fontWeight:'bold',fontSize:'30px',cursor:'pointer'}}>G</span>
+                </div>
+                <div className={classes.input}>
+                    <button className={classes.button}>
+                        Login
+                    </button>
                 </div> 
             </form>
             <div className={classes.forget}>Forgot password</div>

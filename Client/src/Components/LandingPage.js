@@ -11,26 +11,22 @@ import SearchFunction from './SearchFunction';
 
 const useStyles = makeStyles({
 
-    root: {
-        height: '230px',
-        width: '100%'
-    },
+    
     text: {
         paddingTop: '10px',
         paddingLeft: '8px'
     },
     checkbox:{
         width:'100%',
-        margin: '20px 0px'
+        margin: '20px 0px',
     },
     parent: {
-
         display: 'flex',
         flexDirection: 'column',
-        width: '75%',
-        margin: 'auto',
+        width: '90%',
         justifyContent: 'center',
         alignItems: 'center',
+        margin: 'auto',
     },
     button: {
         padding: '3px',
@@ -39,9 +35,14 @@ const useStyles = makeStyles({
     },
     parentBox:{
         display:'flex',
+        margin: 'auto'
     },
     childBox:{
-        height:'100%'
+        height:'100%',
+        margin: 'auto'
+    },
+    container: {
+        margin: 'auto'
     }
 });
 
@@ -49,9 +50,8 @@ const useStyles = makeStyles({
 function LandingPage() {
     const classes = useStyles();
     const [skip, setSkip] = useState(0);
-    const [limit, setLimit] = useState(3);
+    const [limit] = useState(3);
     const [products, setProducts] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
     const [filter, setFilter] = useState({
         continent:[],
         price:[],
@@ -74,7 +74,7 @@ function LandingPage() {
             limit: limit
         }
         getProduct(variable);
-    }, [])
+    })
 
     const loadMore = () => {
         setSkip(limit);
@@ -105,18 +105,18 @@ function LandingPage() {
             <SearchFunction filterSearch={(value)=>handleFilter(value,'title')}/>
             </div>
             <div className={classes.checkbox}>
-            <Grid className={classes.parentBox} container spacing={4}>
-                <Grid className={classes.childBox} item xs={6} >
+            <Grid container spacing={3}>
+                <Grid className={classes.childBox} item sm={6} xs={9} >
                 <CheckBox handleFilter={value=>handleFilter(value,'continent')}/>
                 </Grid>
-                <Grid item xs={6} className={classes.filterChild}>
+                <Grid  item sm={6} xs={9} className={classes.childBox}>
                 <RadioBox handleFilter={value=>handleFilter(value,'price')}/>
                 </Grid>
             </Grid>
             </div>
-            <Grid className={classes.container} container spacing={2}>
+            <Grid  container spacing={2}>
                 {products.map((product, index) => (
-                    <Grid item xs={9} sm={6} md={4} lg={3} key={index}>
+                    <Grid item xs={9} sm={6} md={4} lg={3} className={classes.container} key={index}>
                         <Link style={{textDecoration:'none'}} to={`/ProductDetails/${product._id}`}><Card className={classes.root}>
                             <ImageSlider images={product.image} />
                             <Typography className={classes.text}>{product.title}</Typography>

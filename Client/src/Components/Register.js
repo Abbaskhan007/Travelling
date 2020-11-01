@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, {useState, useContext } from 'react'
 import Axios from 'axios'
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -10,7 +10,6 @@ import {UserContext} from '../Store/Store'
 
 const useStyles = makeStyles({
     container: {
-        background: '#9152f8',
         background: '-webkit-linear-gradient(top,#7579ff,#b224ef)',
         display: 'flex',
         alignItems: 'center',
@@ -162,7 +161,7 @@ function Register(props) {
         <Grid container justifyContent='center'>
             <Grid lg={5} md={6} sm={8} xs={11} item className={classes.container}>
                 <div className={classes.imageDiv}>
-                    <img className={classes.image} src='https://www.graphicsprings.com/filestorage/stencils/db095faa8035cee1e0cd3606ac6cad1b.png?width=500&height=500' />
+                    <img className={classes.image} alt='Logo of travello' src='https://www.graphicsprings.com/filestorage/stencils/db095faa8035cee1e0cd3606ac6cad1b.png?width=500&height=500' />
                 </div>
 
                 <h2 className={classes.title}>SiGN UP</h2>

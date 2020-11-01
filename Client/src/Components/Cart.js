@@ -25,9 +25,9 @@ function Cart(props) {
     useEffect(() => {
 
         let id = [];
-        initialState.cart.map(item => {
-            id.push(item.id);
-        })
+        initialState.cart.map(item =>( 
+            id.push(item.id)
+        ))
         let variable = {
             id: id
         }
@@ -67,7 +67,7 @@ function Cart(props) {
     return (
         <div>
             <div style={{ display: 'flex', justifyContent: 'center', margin: '50px 0px' }}>
-                <Typography variant="h3" gutterBottom>Total Price :    ${price}</Typography>
+                <Typography style={{ fontSize: '30px', fontWeight: 'bold'}} gutterBottom>Total Price :    ${price}</Typography>
             </div>
             {initialState.cartDetail.map(item => <CartItems key={item._id} cartDetail={item} />)}
             
@@ -78,7 +78,7 @@ function Cart(props) {
             shippingAddress
             billingAddress
             >
-                <div style={{display: 'flex', justifyContent: 'center',marginTop:'30px'}}>
+                <div style={{display: 'flex', justifyContent: 'center',margin:'30px 0px'}}>
                     <Button variant="contained" color="primary">
                         Payment
                     </Button>

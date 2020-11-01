@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, Button,ButtonGroup, Divider } from '@material-ui/core';
+import { Grid, Typography, Button,ButtonGroup } from '@material-ui/core';
 import { UserContext } from '../Store/Store'
 import DeleteIcon from '@material-ui/icons/Delete';
 import Axios from 'axios'
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     },
     
     title:{
-        paddingTop:'20px'
+        paddingTop:'30px',
     },
     buttonGroup:{
         fontSize: '20px'
@@ -40,6 +40,8 @@ const useStyles = makeStyles({
     removeItem:{
         display: 'flex',
         alignItems: 'center',
+        paddingTop: '20px',
+        paddingLeft: '0px',
         '&:hover':{
             cursor: 'pointer'
         }
@@ -81,10 +83,10 @@ function CartItems(props) {
     }
     return (
         <Grid container spacing={4} className={classes.parent} justify='center'>
-            <Grid item xs={3} >
-                <img className={classes.image} src={`${image[0]}`} />
+            <Grid item sm={4} xs = {7} >
+                <img className={classes.image} alt='place' src={`${image[0]}`} />
             </Grid>
-            <Grid item xs={3} md={4}>
+            <Grid item sm={4} xs = {6}>
                 <div className={classes.detail}>
                     <div>
                     <Typography  variant='h5'>{continent}</Typography>
@@ -93,7 +95,7 @@ function CartItems(props) {
                     <span className={classes.removeItem} onClick={()=>removeItem(_id)}><DeleteIcon /> <Typography variant="subtitle1">REMOVE ITEM</Typography></span>
                 </div>
             </Grid>
-            <Grid item xs={2} ms={3}>
+            <Grid item  sm={3} xs={5}>
                 <div className={classes.quantity}>
                     <ButtonGroup className={classes.buttonGroup} aria-label="large outlined button group">
                         <Button style={{fontSize: '20px'}} onClick={()=>changeQuantity(_id,1)}>+</Button>
@@ -103,7 +105,7 @@ function CartItems(props) {
                     <Typography className={classes.price} variant='h5'>{`$${price}`}</Typography>
                 </div>
             </Grid>
-            <Grid className= {classes.border} item xs={6} md={9}>
+            <Grid className= {classes.border} item xs={6} >
                 
             </Grid>
             

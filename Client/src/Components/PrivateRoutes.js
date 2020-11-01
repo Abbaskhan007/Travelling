@@ -1,11 +1,10 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import {Route, Redirect} from 'react-router-dom'
 import {UserContext} from '../Store/Store'
-import Axios from 'axios'
 
 
 function PrivateRoutes({component:Component,...rest}) {
-    const [initialState, setState] = useContext(UserContext);
+    const [initialState] = useContext(UserContext);
 /*
     const loadUSer = () =>{
         console.log('Initial State ',initialState)

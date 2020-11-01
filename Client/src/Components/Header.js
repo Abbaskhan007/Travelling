@@ -10,22 +10,32 @@ import Cookies from 'js-cookie'
 
 
 const useStyles = makeStyles((theme) => ({
+    design:{
+        boxShadow: 'none',
+        width: '95%',
+        margin: '30px auto',
+        backgroundColor:'black',
+        borderRadius: '3px'
+    
+    },
     root: {
         flexGrow: 1,
-        color: 'black'
+        color: 'black',
+
     },
     size: {
         fontSize: '20px'
     },
     name: {
         display: 'none',
+        color: 'white',
         [theme.breakpoints.up('md')]: {
             display: 'block'
         }
     },
     tabs: {
         marginRight: theme.spacing(3),
-        color: 'black'
+        color: 'white'
     },
     icon: {
         width: '100%',
@@ -67,17 +77,17 @@ function Header(props) {
     return (
 
         <div >
-            <AppBar position='static' color='transparent' style={{ boxShadow: 'none', color: 'white', boxSizing: 'border-box',marginBottom: '20px' }}>
-                <Toolbar style={{ paddingTop: '15px' }}>
+            <AppBar position='static' className={classes.design}>
+                <Toolbar>
                     <div className={classes.menu}>
                         <IconButton color='inherit' onClick={toggleDrawer}>
-                            <Menu style={{ fontSize: '40px', fill: 'black' }} />
+                            <Menu style={{ fontSize: '40px', fill: 'white', color:'white' }} />
                         </IconButton>
                     </div>
                     <div className={classes.root}>
                         <div className={classes.mobile}>
                             <div className={classes.icon}>
-                                <img className={classes.tabs} height='40px' alt='Background imabge' src='https://www.freeiconspng.com/thumbs/travel-icon/--global-globe-plane-travel-worldwide-icon--icon-search-engine-1.png' />
+                                <img className={classes.tabs} height='40px' alt='Background' src='https://www.freeiconspng.com/thumbs/travel-icon/--global-globe-plane-travel-worldwide-icon--icon-search-engine-1.png' />
                                 <Typography className={classes.name} variant='h6'>
                                     Tourists
                                 </Typography>
@@ -110,6 +120,11 @@ function Header(props) {
                                     </Badge>
                                 </IconButton>
 
+                            </Link>
+                            <Link to='/History' style={{ textDecoration: 'none', color: 'white' }}>
+                                <Typography className={classes.tabs} variant='h6'>
+                                    History
+                                </Typography>
                             </Link>
                         </div>
                     </div>

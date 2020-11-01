@@ -14,6 +14,7 @@ import Login from './Components/Login';
 import Cart from './Components/Cart';
 import Register from './Components/Register';
 import History from './Components/History';
+import LoginRoute from './Components/LoginRoute'
 import PrivateRoutes from './Components/PrivateRoutes'
 import {UserContext} from './Store/Store'
 
@@ -45,11 +46,11 @@ function App() {
           <PrivateRoutes path='/Upload' component={Upload} />
           <Route path='/Contact' component={Contact} />
           <Route path='/About' component={About} />
-          <Route path='/Register' component={Register} />
-          <Route path='/Login' component={Login} />
+          <LoginRoute path='/Register' component={Register} />
+          <LoginRoute path='/Login' component={Login} />
           <Route path='/ProductDetails/:id' component={ProductDetails} />
           <PrivateRoutes path='/Cart' component={Cart} />
-          <Route path='/History' component={History}/>
+          <PrivateRoutes path='/History' component={History}/>
         </Switch>
       </Router>
   );

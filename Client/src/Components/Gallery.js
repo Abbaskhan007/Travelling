@@ -6,12 +6,12 @@ function Gallery(props) {
 
     useEffect(()=>{
         let imgGallery = [];
-        props.image && props.image.map((item,index)=>{
+        props.image && props.image.map((item,index)=>(
             imgGallery.push({
                 original: `http://localhost:5000/${item}`,
                 thumbnail: `http://localhost:5000/${item}`,
             })
-        })
+        ))
         setImages(imgGallery);
         console.log('imgGallery',imgGallery)
     }
