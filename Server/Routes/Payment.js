@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const stripe = require('stripe')('sk_test_51HgrsmFQ8VNGXjFtdHI0uhOZR8BQEvsgifLAEYSMao428LvNVU2WkcVLTmts7COrDUe1Yfy5e16MvDYhE2CVGyS400rBla0JW3');
+require('dotenv').config();
+const stripe = require('stripe')(process.env.API_KEY);
 const uuid = require("uuid");
 const { auth } = require('../Middleware/Auth');
 const {payment} = require('../Models/Payment');
 const { userModel } = require('../Models/User');
 
-
+console.log('process variable.............',process.env.API_KEY)
 router.post('/stripe', auth, (req,res)=>{
     const {price,token,cartDetail,cart} = req.body;
     const idempontencyKey = uuid.v4();
@@ -72,7 +73,7 @@ router.post('/stripe', auth, (req,res)=>{
                     paymentModel.save((err, info)=>{
                         if(err) res.json({paid: 'false', err: err})
                         console.log('......22222............"222222"......');
-                        res.status(200).json(charge)
+                        res.status(200).json({success: true,charge})
                     })
                 })
             }

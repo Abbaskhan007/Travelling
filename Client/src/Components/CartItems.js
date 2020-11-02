@@ -83,10 +83,10 @@ function CartItems(props) {
     }
     return (
         <Grid container spacing={4} className={classes.parent} justify='center'>
-            <Grid item sm={4} xs = {7} >
-                <img className={classes.image} alt='place' src={`${image[0]}`} />
+            <Grid item sm={4} xs = {7} md={3} >
+                <img className={classes.image} alt='place' src={`https://serene-plateau-16661.herokuapp.com/${image[0]}`} />
             </Grid>
-            <Grid item sm={4} xs = {6}>
+            <Grid item sm={4} xs = {6} md={3}>
                 <div className={classes.detail}>
                     <div>
                     <Typography  variant='h5'>{continent}</Typography>
@@ -95,7 +95,7 @@ function CartItems(props) {
                     <span className={classes.removeItem} onClick={()=>removeItem(_id)}><DeleteIcon /> <Typography variant="subtitle1">REMOVE ITEM</Typography></span>
                 </div>
             </Grid>
-            <Grid item  sm={3} xs={5}>
+            <Grid item  sm={3} xs={5} md={2}>
                 <div className={classes.quantity}>
                     <ButtonGroup className={classes.buttonGroup} aria-label="large outlined button group">
                         <Button style={{fontSize: '20px'}} onClick={()=>changeQuantity(_id,1)}>+</Button>

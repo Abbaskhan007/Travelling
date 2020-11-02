@@ -10,8 +10,6 @@ import ImageSlider from './ImageSlider'
 import SearchFunction from './SearchFunction';
 
 const useStyles = makeStyles({
-
-    
     text: {
         paddingTop: '10px',
         paddingLeft: '8px'
@@ -50,7 +48,7 @@ const useStyles = makeStyles({
 function LandingPage() {
     const classes = useStyles();
     const [skip, setSkip] = useState(0);
-    const [limit] = useState(3);
+    const [limit] = useState(20);
     const [products, setProducts] = useState([]);
     const [filter, setFilter] = useState({
         continent:[],
@@ -74,7 +72,7 @@ function LandingPage() {
             limit: limit
         }
         getProduct(variable);
-    })
+    },[])
 
     const loadMore = () => {
         setSkip(limit);
@@ -116,7 +114,7 @@ function LandingPage() {
             </div>
             <Grid  container spacing={2}>
                 {products.map((product, index) => (
-                    <Grid item xs={9} sm={6} md={4} lg={3} className={classes.container} key={index}>
+                    <Grid item xs={9} sm={6} md={4} lg={3} xl={2} className={classes.container} key={index}>
                         <Link style={{textDecoration:'none'}} to={`/ProductDetails/${product._id}`}><Card className={classes.root}>
                             <ImageSlider images={product.image} />
                             <Typography className={classes.text}>{product.title}</Typography>

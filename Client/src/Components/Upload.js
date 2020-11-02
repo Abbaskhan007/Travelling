@@ -172,7 +172,7 @@ function Upload(props) {
                         )}
                     </Dropzone>
                         <Grid item xs={10} sm={5} className={classes.image}>{images.map((pic, index)=>(
-                            <img key={index} onClick={()=>handleDelete(pic)} style={{width:'100%',height:'100%'}} src={`http://localhost:5000/${pic}`} alt={`${index}-index`}/>
+                            <img key={index} onClick={()=>handleDelete(pic)} style={{width:'100%',height:'100%'}} src={`https://serene-plateau-16661.herokuapp.com/${pic}`} alt={`${index}-index`}/>
                         ))}</Grid>
                 </Grid>
                 <div className={classes.field}>

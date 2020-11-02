@@ -113,6 +113,11 @@ function Register(props) {
     const [passwordError, setPasswordError] = useState(false);
     const [emailError, setEmailError] = useState(false);
 
+    const moveToLogin = () =>{
+        props.history.push('/Login')
+    }
+
+
     const onSubmit = (event) => {
         console.log('data', [name, lastname, email, password])
         event.preventDefault();
@@ -158,7 +163,7 @@ function Register(props) {
     }
 
     return (
-        <Grid container justifyContent='center'>
+        <Grid container>
             <Grid lg={5} md={6} sm={8} xs={11} item className={classes.container}>
                 <div className={classes.imageDiv}>
                     <img className={classes.image} alt='Logo of travello' src='https://www.graphicsprings.com/filestorage/stencils/db095faa8035cee1e0cd3606ac6cad1b.png?width=500&height=500' />
@@ -218,7 +223,7 @@ function Register(props) {
                     </button>
                     </div>
                 </form>
-                <p style={{ justifyContent: 'flex-end', alignItems: 'center' }}>Already have account <a href='/Login'>Log In</a></p>
+                <p style={{ justifyContent: 'flex-end', alignItems: 'center' }}>Already have account? <span style={{cursor:'pointer'}} onClick={moveToLogin} >Click to Login</span> </p>
             </Grid>
         </Grid>
     )

@@ -27,11 +27,9 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '20px'
     },
     name: {
-        display: 'none',
+        
         color: 'white',
-        [theme.breakpoints.up('md')]: {
-            display: 'block'
-        }
+        
     },
     tabs: {
         marginRight: theme.spacing(3),
@@ -43,13 +41,13 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center'
     },
     menu: {
-        [theme.breakpoints.up("sm")]: {
+        [theme.breakpoints.up("md")]: {
             display: 'none',
         }
     },
     mobile: {
         display: 'none',
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
             display: 'flex',
             alignItems: 'center'
         }

@@ -41,6 +41,7 @@ function App() {
   return (
       <Router >
         <Header />
+        {console.log('Environment variable', process.env.REACT_APP_KEY)}
         <Switch>
           <Route path='/' exact component={Home} />
           <PrivateRoutes path='/Upload' component={Upload} />

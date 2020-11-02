@@ -18,7 +18,7 @@ function ImageSlider(props) {
         <div>
             <Slider {...settings}>
                 {props.images.map((image,index)=>(
-                    <img height='160px' alt='beautiful' key={index} src={image} />
+                    <img height='160px' alt='beautiful' key={index} src={`https://serene-plateau-16661.herokuapp.com/{image}`} />
                 ))}
             </Slider>    
         </div>

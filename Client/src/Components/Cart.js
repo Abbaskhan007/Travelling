@@ -60,6 +60,11 @@ function Cart(props) {
         console.log('Body ...', body)
         Axios.post('/api/payment/stripe',body).then(res=>{
             console.log('res of stripe', res)
+            if(res.data.success){
+                props.history.push('/')
+                setState({...initialState,cart:[],cartDetail:[]});
+                alert('Purchase succeded');
+            }
         }) 
     }
 
@@ -72,7 +77,7 @@ function Cart(props) {
             {initialState.cartDetail.map(item => <CartItems key={item._id} cartDetail={item} />)}
             
             <Stripe
-            stripeKey= 'pk_test_51HgrsmFQ8VNGXjFtuZOoiJsR9yVQb6PXTernz1qYMIpkEwnQRA8YrRDXmmzh4zwsXTIq5tJnnoduS1Y90nDIXru90062JC1FJs'
+            stripeKey= {process.env.REACT_APP_KEY}
             token= {makePayment}
             name = 'Book reservation'
             shippingAddress

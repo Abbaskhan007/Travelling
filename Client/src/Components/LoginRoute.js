@@ -10,7 +10,7 @@ function LoginRoute({component:Component,...rest}) {
     return (
         console.log('Route ',rest),
         <Route {...rest} render={(props)=>(
-            initialState.isAuth === true ? <Redirect to='/' />: <Component {...props}/>
+            initialState.isAuth !== true ?  <Component {...props}/> : < Redirect to='/' />
         )}/>
     )
 }

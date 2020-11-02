@@ -8,8 +8,8 @@ function Gallery(props) {
         let imgGallery = [];
         props.image && props.image.map((item,index)=>(
             imgGallery.push({
-                original: `http://localhost:5000/${item}`,
-                thumbnail: `http://localhost:5000/${item}`,
+                original: `https://serene-plateau-16661.herokuapp.com/ ${item}`,
+                thumbnail: `https://serene-plateau-16661.herokuapp.com/ ${item}`,
             })
         ))
         setImages(imgGallery);
