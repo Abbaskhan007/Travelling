@@ -1,0 +1,13 @@
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
+    height: 65px;
+}
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+    max-height: 350px;
+    min-height: 350px;
+}
+.image-gallery-slide .image-gallery-image{
+    object-fit: fill;
+}
+.image-gallery-image{
+    height: 100%;
+}
